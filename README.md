@@ -43,7 +43,7 @@ ${PATHWAY_BOWTIE2}/bowtie2 -x sequence_min100 -1 {pathway_input}/read1.fastq -2 
 You can obtain the number of aligned reads in the output file and the number of total read can be obtained in the log file of assembly
 Mapping rate = the number of aligned reads/ the number of total reads
 
-# Calculate the RPKM
+# Calculate the RPKM (scripts in the folder)
 1) Count Mapped Reads
 ${Shrinksam_pathway}/shrinksam -i {pathway_input}/ alignment.sam > {output_pathway}/mapped.sam
 {pathway_script}/add_read_count.rb mapped.sam sequence_min1000.fastq > mapped.fasta.counted
