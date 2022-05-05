@@ -50,6 +50,7 @@ Mapping rate = the number of aligned reads/ the number of total reads
 
 # Calculate the RPKM (scripts in the folder)
 1) Count Mapped Reads
+
 command
 ${Shrinksam_pathway}/shrinksam -i {pathway_input}/ alignment.sam > {output_pathway}/mapped.sam
 {pathway_script}/add_read_count.rb mapped.sam sequence_min1000.fastq > mapped.fasta.counted
