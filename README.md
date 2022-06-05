@@ -65,7 +65,9 @@ ${Shrinksam_pathway}/shrinksam -i {pathway_input}/ alignment.sam > {output_pathw
 {pathway_script}/add_read_count.rb mapped.sam sequence_min1000.fastq > mapped.fasta.counted
 
 grep -e > mapped.fasta.counted > mapped.counted.result
+
 sed -i “s/>//g” mapped.counted.result
+
 sed -i “s/read_count_//g” mapped.counted.result
 
 2) RPKM Calculation
