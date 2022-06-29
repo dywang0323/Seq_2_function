@@ -32,7 +32,7 @@ command:
 
 ${BBMAP_PATHWAY}/tadpole.sh -Xmx32g in= output_u.fastq out=output_tecc.fastq filtermemory=7g ordered prefilter=1
 
-# Map the sequencing reads to the reference (pullseq & bowtie2 & shrinksam)
+# Map the sequencing reads to the nucleotide reference (pullseq & bowtie2 & shrinksam)
 1) Select reads that sequence length > 100 (pullseq)
 
 command:
@@ -69,6 +69,19 @@ grep -e > mapped.fasta.counted > mapped.counted.result
 sed -i “s/>//g” mapped.counted.result
 
 sed -i “s/read_count_//g” mapped.counted.result
+
+# Map the sequencing reads to the amino acid reference (diamond)
+
+* prepare the database
+
+diamond makedb --in AOA_amoA_AA.fasta -d AOA_amoA_warming_nr
+
+* mapping
+
+diamond blastx --id 80% -e 0.00001 
+-d AOA_amoA_warming_nr.dmnd 
+-q sample_min100.fasta.gz 
+-o sample.m8
 
 2) RPKM Calculation
 
